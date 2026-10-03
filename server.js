@@ -8,8 +8,9 @@ const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('db.json');
 const db = low(adapter);
 db.defaults({ pagos: [], suscripciones: [] }).write();
-
+const cors = require('cors');
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const PLANS = {
